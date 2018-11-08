@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Form from './Form'
 
-export default class Example extends Component {
+
+export default class App extends Component {
     render() {
         return (
             <div className="container">
@@ -10,7 +12,7 @@ export default class Example extends Component {
                         <div className="card">
                             <div className="card-header">PRUEBA BACKEND DEVELOPER</div>
                             <div className="card-body">
-                               
+                               <Form></Form>
                             </div>
                         </div>
                     </div>
@@ -21,5 +23,5 @@ export default class Example extends Component {
 }
 
 if (document.getElementById('app')) {
-    ReactDOM.render(<Example />, document.getElementById('app'));
+    ReactDOM.render(<App />, document.getElementById('app'));
 }
