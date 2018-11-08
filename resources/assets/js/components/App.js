@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Form from './Form'
-
+import ListUsers from './ListUsers'
 
 export default class App extends Component {
     render() {
@@ -12,7 +12,12 @@ export default class App extends Component {
                         <div className="card">
                             <div className="card-header">PRUEBA BACKEND DEVELOPER</div>
                             <div className="card-body">
-                               <Form></Form>
+                               <Form/>
+                            </div>
+                        </div>
+                        <div className="card">
+                            <div className="card-body">
+                               <ListUsers/>
                             </div>
                         </div>
                     </div>

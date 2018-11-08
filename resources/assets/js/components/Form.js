@@ -66,7 +66,7 @@ class Form extends Component {
             placeholder="Email"/>
         </div>
         <div className={"row"}>
-          <label className={"col-md-2"}> Profession: </label>
+          <label className={"col-md-2"}> Profesión: </label>
           <input 
             className={"form-control col-md-4"}
             type="text" 
