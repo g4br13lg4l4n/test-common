@@ -18,28 +18,10 @@ class RequestLogsController extends Controller
     public function store(Request $request)
     {
         // create user
-        $save = RequestLogs::create($request->all());
-        return response()->json($save, 200);
-    }
-/*
-    public function show(RequestLogs $requestLogs)
-    {
-        //
+
+        return $request->name;
+        //$save = RequestLogs::create($request->all());
+        //return response()->json($save, 200);
     }
 
-    public function edit(RequestLogs $requestLogs)
-    {
-        //
-    }
-
-    public function update(Request $request, RequestLogs $requestLogs)
-    {
-        //
-    }
-
-    public function destroy(RequestLogs $requestLogs)
-    {
-        //
-    }
-*/
 }

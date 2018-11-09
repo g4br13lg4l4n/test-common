@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios'
 import Info from './Info'
-import Log from '../log'
 
 class Form extends Component {
   constructor(props) {
@@ -13,9 +12,8 @@ class Form extends Component {
       email: '',
       profession: ''
      }
-    
-    this.URL_log = 'http://localhost:8000/api/log'
-    this.URL_API = 'http://178.128.70.168:8001/api/v1/user'
+
+    this.URL_API = 'http://localhost:8000/api/user'
 
     this.infoResponse = ''
     this.handleChange = this.handleChange.bind(this)
@@ -36,29 +34,9 @@ class Form extends Component {
       profession: this.state.profession
     }
 
-
-    let data = {
-      type_request: 'POST',
-      url_request: this.URL_API,
-      send_data: user.toString(),
-      status_response: 'before_send',
-      response: 'NULL', 
-    }
-
-    Log(this.URL_log, data)
-
     Axios.post(this.URL_API, user)
     .then(resp => {
       this.setState({infoResponse: true, info: <Info response={resp}/>}); 
-
-      let data = {
-        type_request: 'POST',
-        url_request: this.URL_API,
-        send_data: user.toString(),
-        status_response: resp.status,
-        response: resp.data.toString(), 
-      }
-      Log(this.URL_log, data)
     })
     .catch(err => {
       this.setState({infoResponse: true, info: <Info response={err}/>});

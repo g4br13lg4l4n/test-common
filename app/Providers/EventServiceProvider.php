@@ -26,6 +26,8 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         parent::boot();
-        Event::listen('UserSaving', function ($foo, $bar) { });
+        Event::listen('UserSaving', function ($foo, $bar) { 
+            echo('entra algo --->');
+        });
     }
 }

@@ -19,7 +19,7 @@ class CreateRequestLogsTable extends Migration
             $table->string('url_request');
             $table->string('send_data');
             $table->string('status_response');
-            $table->string('response');
+            $table->text('response');
             $table->timestamps();
         });
     }
