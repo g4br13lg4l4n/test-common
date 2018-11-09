@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios'
 import Info from './Info'
+import Log from '../log'
 
 class Form extends Component {
   constructor(props) {
@@ -12,6 +13,10 @@ class Form extends Component {
       email: '',
       profession: ''
      }
+    
+    this.URL_log = 'http://localhost:8000/api/log'
+    this.URL_API = 'http://178.128.70.168:8001/api/v1/user'
+
     this.infoResponse = ''
     this.handleChange = this.handleChange.bind(this)
     this.save = this.save.bind(this)
@@ -30,13 +35,41 @@ class Form extends Component {
       email: this.state.email,
       profession: this.state.profession
     }
-    Axios.post('http://localhost:8000/api/users', user)
+
+
+    let data = {
+      type_request: 'POST',
+      url_request: this.URL_API,
+      send_data: user.toString(),
+      status_response: 'before_send',
+      response: 'NULL', 
+    }
+
+    Log(this.URL_log, data)
+
+    Axios.post(this.URL_API, user)
     .then(resp => {
-      this.setState({infoResponse: true, info: <Info response={resp}/>});  
+      this.setState({infoResponse: true, info: <Info response={resp}/>}); 
+
+      let data = {
+        type_request: 'POST',
+        url_request: this.URL_API,
+        send_data: user.toString(),
+        status_response: resp.status,
+        response: resp.data.toString(), 
+      }
+      Log(this.URL_log, data)
     })
     .catch(err => {
       this.setState({infoResponse: true, info: <Info response={err}/>});
-      console.log(err)
+      let data = {
+        type_request: 'POST',
+        url_request: this.URL_API,
+        send_data: user.toString(),
+        status_response: err.status,
+        response: err.data, 
+      }
+      Log(this.URL_log, data)
     })
   }
 

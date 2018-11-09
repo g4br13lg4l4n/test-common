@@ -7,4 +7,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 */
 
-Route::resource('users', 'UserController', ['only' => ['store','index']]);
+Route::resource('log', 'RequestLogsController', ['only' => ['store','index']]);
+

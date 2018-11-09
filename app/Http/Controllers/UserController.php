@@ -11,7 +11,6 @@ class UserController extends Controller
     {
         // show all
         $usuarios = User::all();     
-
         return response()->json($usuarios, 200);
     }
 

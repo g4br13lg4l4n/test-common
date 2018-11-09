@@ -5,7 +5,7 @@ const Info =  (props) => {
   if(props.response.status  == 200){
     return (
       <div className={"content-message"}>
-        <p className={"message"}>El usuario con el nombre <strong> {props.response.data.name} </strong> se ha guardado.</p>
+        <p className={"message"}>El usuario con el nombre <strong> {props.response.data.data.result.name} </strong> se ha guardado.</p>
       </div>
     )
   }else {
